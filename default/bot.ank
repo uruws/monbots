@@ -1,0 +1,2 @@
+// default bot that does nothing but complain about having nothing to do.
+log.fatal("nothing to do here")
