@@ -1,23 +1,10 @@
 // api bot
 log.debug("init api bot")
 
-LOGIN_URL = "https://talkingpts.org"
-LOGOUT_URL = "https://app.talkingpts.org"
+BASE_URL = "https://staging.talkingpts.org/api/teachers/v5"
+LOGIN_URL = "/auth/login"
+LOGOUT_URL = "/auth/logout"
 
-func api_login() {
-	log.debug("login URL: %s", LOGIN_URL)
-	_, err = bot.get(LOGIN_URL)
-	if err != nil {
-		log.fatal("login: %s", err)
-	}
-}
-
-func api_logout() {
-	log.debug("logout URL: %s", LOGOUT_URL)
-	_, err = bot.get(LOGOUT_URL)
-	if err != nil {
-		log.fatal("logout: %s", err)
-	}
-}
+bot.set_base_url(BASE_URL)
 
 log.debug("init api bot done")
