@@ -1,0 +1,3 @@
+// check api login/logout
+api_login()
+api_logout()
