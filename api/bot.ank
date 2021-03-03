@@ -5,6 +5,14 @@ BASE_URL = config.get("BASE_URL")
 LOGIN_URL = config.get("LOGIN_URL")
 LOGOUT_URL = config.get("LOGOUT_URL")
 
+func api_login() {
+	bot.login(LOGIN_URL)
+}
+
+func api_logout() {
+	bot.logout(LOGOUT_URL)
+}
+
 bot.set_base_url(BASE_URL)
 
 log.debug("init api bot done")
