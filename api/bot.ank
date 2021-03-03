@@ -1,9 +1,9 @@
 // api bot
 log.debug("init api bot")
 
-BASE_URL = "https://staging.talkingpts.org/api/teachers/v5"
-LOGIN_URL = "/auth/login"
-LOGOUT_URL = "/auth/logout"
+BASE_URL = config.get("BASE_URL")
+LOGIN_URL = config.get("LOGIN_URL")
+LOGOUT_URL = config.get("LOGOUT_URL")
 
 bot.set_base_url(BASE_URL)
 

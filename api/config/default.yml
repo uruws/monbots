@@ -1,1 +1,4 @@
 BOT: api
+BASE_URL: https://staging.talkingpts.org/api/teachers/v5
+LOGIN_URL: /auth/login
+LOGOUT_URL: /auth/logout
