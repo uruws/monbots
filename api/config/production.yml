@@ -1,0 +1,2 @@
+include: ./default.yml
+SERVER: app.talkingpts.org
