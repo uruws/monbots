@@ -1,5 +1,6 @@
 // check api user profile
 USER_URL = config.get("USER_URL")
 api_login()
-bot.get(USER_URL)
+resp = bot.get(USER_URL)
+check.http_status(resp, http.status_ok)
 api_logout()
