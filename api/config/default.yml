@@ -3,3 +3,4 @@ SERVER: staging.talkingpts.org
 BASE_URL: https://${SERVER}/api/teachers/v5
 LOGIN_URL: /auth/login
 LOGOUT_URL: /auth/logout
+USER_URL: /user
