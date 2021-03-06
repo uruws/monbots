@@ -2,5 +2,6 @@
 USER_URL = config.get("USER_URL")
 api_login()
 resp = bot.get(USER_URL)
-check.http_status(resp, http.status_ok)
+assert.http_status(resp, http.status_ok)
+assert.http_header(resp, "content-type", "application/json")
 api_logout()
