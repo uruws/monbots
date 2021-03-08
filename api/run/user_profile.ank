@@ -6,8 +6,6 @@ assert.http_status(resp, http.status_ok)
 assert.http_header(resp, "content-type", "application/json")
 assert.json_match(resp, "response status",
 	`{"status": "success"}`)
-assert.json_match(resp, "user id",
-	`{"data": {"user": {"_id": "8dTvvdraTKNDzZ4u5"}}}`)
 assert.json_match(resp, "user fullname",
 	`{"data": {"user": {"firstName": "Albert", "lastName": "Einstein"}}}`)
 api_logout()
