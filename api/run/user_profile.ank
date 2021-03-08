@@ -6,6 +6,8 @@ assert.http_status(resp, http.status_ok)
 assert.http_header(resp, "content-type", "application/json")
 assert.json_match(resp, "response status",
 	`{"status": "success"}`)
+assert.json_matchf(resp, "user id", `{"data": {"user": {"_id": "%s"}}}`,
+	config.get("TEST_USER_ID"))
 assert.json_matchf(resp, "user fullname", `{"data": {"user": {"firstName": "%s", "lastName": "%s"}}}`,
 	config.get("TEST_USER_FIRST_NAME"), config.get("TEST_USER_LAST_NAME"))
 api_logout()

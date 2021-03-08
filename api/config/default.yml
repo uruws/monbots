@@ -4,5 +4,7 @@ BASE_URL: https://${SERVER}/api/teachers/v5
 LOGIN_URL: /auth/login
 LOGOUT_URL: /auth/logout
 USER_URL: /user
+TEST_USER_ID: ry58umWGaXJYec7cL
+TEST_USER_EMAIL: not_a_real_address@talkingpts.org
 TEST_USER_FIRST_NAME: uws
 TEST_USER_LAST_NAME: bot
