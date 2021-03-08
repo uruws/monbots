@@ -17,6 +17,7 @@ func api_logout() {
 bot.set_base_url(BASE_URL)
 
 TEST_USER_ID = config.get("TEST_USER_ID")
+TEST_USER_EMAIL = config.get("TEST_USER_EMAIL")
 TEST_USER_FIRST_NAME = config.get("TEST_USER_FIRST_NAME")
 TEST_USER_LAST_NAME = config.get("TEST_USER_LAST_NAME")
 
