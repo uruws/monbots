@@ -1,2 +1,4 @@
 include: ./default.yml
 SERVER: app.talkingpts.org
+TEST_USER_FIRST_NAME: Mr. Albert
+TEST_USER_LAST_NAME: Einstein

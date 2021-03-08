@@ -4,3 +4,5 @@ BASE_URL: https://${SERVER}/api/teachers/v5
 LOGIN_URL: /auth/login
 LOGOUT_URL: /auth/logout
 USER_URL: /user
+TEST_USER_FIRST_NAME: Albert
+TEST_USER_LAST_NAME: Einstein
