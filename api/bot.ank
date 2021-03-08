@@ -5,6 +5,7 @@ BASE_URL = config.get("BASE_URL")
 LOGIN_URL = config.get("LOGIN_URL")
 LOGOUT_URL = config.get("LOGOUT_URL")
 USER_URL = config.get("USER_URL")
+USER_UPDATE_URL = config.get("USER_UPDATE_URL")
 
 func api_login() {
 	bot.login(LOGIN_URL)

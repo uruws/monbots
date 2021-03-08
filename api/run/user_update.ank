@@ -1,0 +1,26 @@
+// check api user profile update
+api_login()
+
+user_pre = bot.get(USER_URL)
+assert.json_match(user_pre, "pre response status", `{"status": "success"}`)
+assert.json_match(user_pre, "pre user smsName", `{"data": {"user": {"smsName": "Ms. Bot"}}}`)
+
+values = post.new_values()
+values["smsName"] = []string{"testing_profile_update"}
+resp = bot.post_form(USER_UPDATE_URL, values)
+assert.http_status(resp, http.status_ok)
+assert.http_header(resp, "content-type", "application/json")
+assert.json_match(resp, "response status", `{"status": "success"}`)
+
+user_post = bot.get(USER_URL)
+assert.json_match(user_post, "post response status", `{"status": "success"}`)
+assert.json_match(user_post, "post user smsName", `{"data": {"user": {"smsName": "testing_profile_update"}}}`)
+
+values = post.new_values()
+values["smsName"] = []string{"Ms. Bot"}
+resp = bot.post_form(USER_UPDATE_URL, values)
+assert.http_status(resp, http.status_ok)
+assert.http_header(resp, "content-type", "application/json")
+assert.json_match(resp, "response status", `{"status": "success"}`)
+
+api_logout()
