@@ -1,5 +1,5 @@
 BOT: api
-SERVER: staging.talkingpts.org
+SERVER: __SERVER_NOT_SET__
 BASE_URL: https://${SERVER}/api/teachers/v5
 LOGIN_URL: /auth/login
 LOGOUT_URL: /auth/logout
