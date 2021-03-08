@@ -4,6 +4,7 @@ log.debug("init api bot")
 BASE_URL = config.get("BASE_URL")
 LOGIN_URL = config.get("LOGIN_URL")
 LOGOUT_URL = config.get("LOGOUT_URL")
+USER_URL = config.get("USER_URL")
 
 func api_login() {
 	bot.login(LOGIN_URL)
@@ -14,5 +15,9 @@ func api_logout() {
 }
 
 bot.set_base_url(BASE_URL)
+
+TEST_USER_ID = config.get("TEST_USER_ID")
+TEST_USER_FIRST_NAME = config.get("TEST_USER_FIRST_NAME")
+TEST_USER_LAST_NAME = config.get("TEST_USER_LAST_NAME")
 
 log.debug("init api bot done")
