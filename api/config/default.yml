@@ -1,1 +1,13 @@
 BOT: api
+SERVER: __SERVER_NOT_SET__
+BASE_URL: https://${SERVER}/api/teachers/v5
+
+LOGIN_URL: /auth/login
+LOGOUT_URL: /auth/logout
+USER_URL: /user
+USER_UPDATE_URL: ${USER_URL}/update_profile
+
+TEST_USER_ID: __TEST_USER_ID__
+TEST_USER_EMAIL: not_a_real_address@talkingpts.org
+TEST_USER_FIRST_NAME: uwsbot
+TEST_USER_LAST_NAME: __TEST_USER_LAST_NAME__
