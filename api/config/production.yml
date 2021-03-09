@@ -1,4 +1,11 @@
-include: ./default.yml
+BOT: api
 SERVER: app.talkingpts.org
+BASE_URL: https://${SERVER}/api/teachers/v5
+LOGIN_URL: /auth/login
+LOGOUT_URL: /auth/logout
+USER_URL: /user
+USER_UPDATE_URL: ${USER_URL}/update_profile
 TEST_USER_ID: ZnofFZvzyH4rG7Rvs
+TEST_USER_EMAIL: not_a_real_address@talkingpts.org
+TEST_USER_FIRST_NAME: uwsbot
 TEST_USER_LAST_NAME: production
