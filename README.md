@@ -8,8 +8,15 @@ A set of [bot][bot.docs] scripts to monitor use case scenarios of production ser
 
 ## Setup.
 
-To build the bots engine container locally just run `make build`. It will download
-the latest release of the bot's engine so you can run scripts locally.
+To build the bots engine container locally just run:
+
+	$ make build
+
+It will download the latest release of the bot's engine so you can run scripts locally.
+
+To upgrade the container/force the build:
+
+	$ make upgrade
 
 All scripts are run against **staging** environment. You need a `credentials.yml` file
 so the bot can authenticate to the api.
