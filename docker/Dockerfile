@@ -30,7 +30,7 @@ RUN groupadd -f -g ${UWS_GID} uws \
 	&& useradd -o -d /home/uws -m -c 'uws' -g ${UWS_GID} -u ${UWS_UID} uws \
 	&& chmod -v 0750 /home/uws
 
-ENV UWSBOT aefcd0931bfaeab62fc421add4aea72db496b2ce933c88f5a05056995f931582
+ENV UWSBOT 34c2a1ef99cf00a290db3dbe7889c869765e77ca403cb6c85571c284a664097d
 RUN wget -O uwsbot-devel.tgz http://jsbatch.uws.talkingpts.org/uwsbot/${UWSBOT}.tgz \
 	&& echo "${UWSBOT}  uwsbot-devel.tgz" >checksum \
 	&& sha256sum -c checksum \
