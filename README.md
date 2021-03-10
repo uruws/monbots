@@ -79,7 +79,7 @@ for *staging* environment the *staging.yml* configuration file will be loaded.
 
 Configuration files *MUST* be present, even if empty.
 
-And should be placed under `<botname>/config/<env>.yml`.
+And should be saved as `<botname>/config/<env>.yml`.
 In example: [api/config/staging.yml](api/config/staging.yml).
 
 Other files can be included (only one level of depth) using the `include:` setting.
