@@ -31,26 +31,26 @@ Bots are defined using the `<botname>/bot.ank` file. In example: [api/bot.ank](.
 
 That file is the *core* of the bot. It's the common code for all the scripts.
 That code is run as part of the load process of the bot. So it's the first code any script
-will run. All the defined/declared functions and variables here will be available for all the
+will run. All the defined/declared functions and variables there will be available for all the
 scripts.
 
 ## Scripts.
 
-Scrips are placed under `<botname>/run` directory. In example: [api/run/login_logout.ank](./api/run/login_logout.ank).
-Only `.ank` files will be used.
+Scrips are placed under `<botname>/run` directory. In example: [api/run](./api/run/).
+Only `.ank` files will be used. Like [api/run/login_logout.ank](api/run/login_logout.ank).
 
 They all run as a separate process. So they do not share any global scope. Not even variables declared in `bot.ank` file. That code is ran for each script on its own
 process scope.
 
 ## Run.
 
-To run a bot's scripts you can use `<botname>/run.sh`. In example, to run *api* bot scripts you can do the following:
+To run bot's scripts you can use `<botname>/run.sh`. In example, to run *api* bot scripts you can do the following:
 
     $ ./api/run.sh
 
 That will run all scripts (in parallel) under `api/run` directory.
 
-If you want to run just one script, you can call `run.sh` with the script's name, which is the filename *without* the `.ank` extension. In example, to only run
+If you want to run just one script, you can call `api/run.sh` with the script's name, which is the filename *without* the `.ank` extension. In example, to only run
 `api/run/login_logout.ank` script you can do the following:
 
     $ ./api/run.sh login_logout
@@ -75,4 +75,4 @@ And then just:
 
 	$ git push deploy
 
-But you need authorization first for that, so just let me know if that's the case.
+But you need authorization first for that.
