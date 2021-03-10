@@ -72,6 +72,34 @@ Or `export UWS_LOG=debug` to set it globally (in the current shell session).
 
 Error messages will be reported anyway, you don't need to enable debug logs for that.
 
+## Config.
+
+Bots load a configuration file based on the environment its running under. In example,
+for *staging* environment the *staging.yml* configuration file will be loaded.
+
+Configuration files *MUST* be present, even if empty.
+
+And should be placed under `<botname>/config/<env>.yml`.
+In example: [api/config/staging.yml](api/config/staging.yml).
+
+Other files can be included (only one level of depth) using the `include:` setting.
+It's the only *reserved word*, you can *not* have config settings called *include*, you
+*can* use *INCLUDE* though or any other combination.
+
+Usually an env config loads [api/config/default.yml](api/config/default.yml) file first
+and then only the specific settings for this environment are changed.
+
+Config setting values can be expanded to other config settings. In example:
+
+    # example-config.yml
+    PREFIX: /uws
+    BOTDIR: ${PREFIX}/share/uwsbot
+
+Values are only expanded when requested, so you can refer to non-existent (yet) values in
+the config file as they are not expanded during parsing time.
+
+**Only** `${VARNAME}` syntax is allowed.
+
 # Deploy.
 
 Bots can be deployed to *jsbatch* server via a `git push`. You can set it up as follows:
