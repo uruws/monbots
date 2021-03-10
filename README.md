@@ -83,3 +83,8 @@ And then just:
 	$ git push deploy
 
 But you need authorization first for that.
+
+# Stats.
+
+* [Staging](https://jsbatch.uws.talkingpts.org/munin/staging.t.o/app.staging.t.o/index.html#uwsbot)
+* [Production](https://jsbatch.uws.talkingpts.org/munin/t.o/app.t.o/index.html#uwsbot)
