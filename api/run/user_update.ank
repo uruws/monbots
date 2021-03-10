@@ -5,8 +5,8 @@ smsName = "Ms. Bot"
 
 // check original value
 user_pre = bot.get(USER_URL)
-assert.json_match(user_pre, "pre response status", `{"status": "success"}`)
-assert.json_matchf(user_pre, "pre user smsName",
+check.json_match(user_pre, "pre response status", `{"status": "success"}`)
+check.json_matchf(user_pre, "pre user smsName",
 	`{"data": {"user": {"smsName": "%s"}}}`, smsName)
 
 // update value
@@ -18,8 +18,8 @@ assert.json_match(resp, "response status", `{"status": "success"}`)
 
 // check updated value
 user_post = bot.get(USER_URL)
-assert.json_match(user_post, "post response status", `{"status": "success"}`)
-assert.json_match(user_post, "post user smsName",
+check.json_match(user_post, "post response status", `{"status": "success"}`)
+check.json_match(user_post, "post user smsName",
 	`{"data": {"user": {"smsName": "testing_profile_update"}}}`)
 
 // restore original value
