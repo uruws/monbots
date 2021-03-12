@@ -1,6 +1,7 @@
 BOT: api
 SERVER: __SERVER_NOT_SET__
-BASE_URL: https://${SERVER}/api/teachers/v5
+API_BASE: /api/teachers/v5
+BASE_URL: https://${SERVER}${API_BASE}
 
 LOGIN_URL: /auth/login
 LOGOUT_URL: /auth/logout
