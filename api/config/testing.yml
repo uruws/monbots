@@ -1,4 +1,4 @@
 include: ./default.yml
-SERVER: test.uws.talkingpts.org
+SERVER: 127.0.0.1:4080
 TEST_USER_ID: ry58umWGaXJYec7cL
 TEST_USER_LAST_NAME: testing
