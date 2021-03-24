@@ -22,4 +22,6 @@ TEST_USER_EMAIL = config.get("TEST_USER_EMAIL")
 TEST_USER_FIRST_NAME = config.get("TEST_USER_FIRST_NAME")
 TEST_USER_LAST_NAME = config.get("TEST_USER_LAST_NAME")
 
+MONGO_DB_URI = secret.get("MONGO_DB_URI")
+
 log.debug("init api bot done")

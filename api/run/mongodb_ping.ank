@@ -1,0 +1,10 @@
+// check mongodb connection
+if MONGO_DB_URI != "" {
+	if mongodb.ping(MONGO_DB_URI) {
+		return nil
+	} else {
+		return "mongodb_ping error"
+	}
+} else {
+	log.debug("MONGO_DB_URI not set")
+}
