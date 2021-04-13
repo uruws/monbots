@@ -30,6 +30,7 @@ if err != nil {
 // add students
 
 students = 10
+st_error = false
 
 for i = 0; i < students; i++ {
 	st_contacts = map[string]interface{
@@ -52,11 +53,19 @@ for i = 0; i < students; i++ {
 	st_params, err = json.marshal(st)
 	if err != nil {
 		log.error("%v", err)
+		st_error = true
 		continue
 	}
 	resp = bot.post_json("/student/create", st_params)
-	check.http_status(resp, http.status_ok)
-	check.json_match(resp, "response status", `{"status": "success"}`)
+	if !check.http_status(resp, http.status_ok) {
+		st_error = true
+	}
+	if !check.json_match(resp, "response status", `{"status": "success"}`) {
+		st_error = true
+	}
 }
 
 bot_logout()
+if st_error {
+	return "setup students error"
+}
