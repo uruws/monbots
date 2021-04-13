@@ -68,4 +68,6 @@ for i = 0; i < students; i++ {
 bot_logout()
 if st_error {
 	return "setup students error"
+} else {
+	return nil
 }
