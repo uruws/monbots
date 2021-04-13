@@ -32,9 +32,31 @@ if err != nil {
 students = 10
 
 for i = 0; i < students; i++ {
-	st_contacts = sprintf(`{"firstName":"mqbot_st%d_ct","lastName":"mqbot_st%d_ct_lastname", "language":"en","relationship":{"value":"mother","name":"Mother"},"number": "+555666000%d"}`, i, i, i)
-	st = sprintf(`{"firstName":"mqbot_st%d","lastName":"mqbot_st%d_lastname","grade":5,"classrooms":["%s"],"contacts":[%s]}`, i, i, class_id, st_contacts)
-	resp = bot.post_json("/student/create", st)
+	st_contacts = map[string]interface{
+		"firstName": "mqbot_st%d_ct",
+		"lastName": "mqbot_st%d_ct_lastname",
+		"language": "en",
+		"relationship": map[string]string{
+			"value": "mother",
+			"name": "Mother",
+		},
+		"number": "+555666000%d",
+	}
+	st = map[string]interface{
+		"firstName": "mqbot_st%d",
+		"lastName": "mqbot_st%d_lastname",
+		"grade": 5,
+		"classrooms": []string{class_id},
+		"contacts": []map[string]interface{st_contacts},
+	}
+	st_params, err = json.marshal(st)
+	if err != nil {
+		log.error("%v", err)
+		continue
+	}
+	//~ st = sprintf(`{"firstName":"mqbot_st%d","lastName":"mqbot_st%d_lastname","grade":5,"classrooms":["%s"],"contacts":[%s]}`, i, i, class_id, st_contacts)
+	log.debug("PARAMS: %s", st_params)
+	resp = bot.post_json("/student/create", st_params)
 	check.http_status(resp, http.status_ok)
 	check.json_match(resp, "response status", `{"status": "success"}`)
 }
