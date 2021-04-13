@@ -1,0 +1,8 @@
+BOT: mq
+SERVER: __SERVER_NOT_SET__
+API_BASE: /api/teachers/v5
+BASE_URL: https://${SERVER}${API_BASE}
+
+LOGIN_URL: /auth/login
+LOGOUT_URL: /auth/logout
+USER_URL: /user

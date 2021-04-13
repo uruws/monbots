@@ -1,0 +1,22 @@
+// messages queue worker bot
+log.debug("mq bot init")
+
+BASE_URL = config.get("BASE_URL")
+LOGIN_URL = config.get("LOGIN_URL")
+LOGOUT_URL = config.get("LOGOUT_URL")
+USER_URL = config.get("USER_URL")
+API_BASE = config.get("API_BASE")
+
+func bot_login() {
+	bot.login(LOGIN_URL)
+}
+
+func bot_logout() {
+	bot.logout(LOGOUT_URL)
+}
+
+bot.set_base_url(BASE_URL)
+
+MONGO_DB_URI = secret.get("MONGO_DB_URI")
+
+log.debug("mq bot init done")
