@@ -1,0 +1,58 @@
+// mq bot classroom and students tear down
+
+bot_login()
+
+// students
+
+resp = bot.get("/students/get")
+
+if !check.http_status(resp, http.status_ok) {
+	bot_logout()
+	return "http status error"
+}
+
+rmap, err = response.json_map(resp)
+if err != nil {
+	log.error("%v", err)
+	bot_logout()
+	return "json error"
+}
+
+st_list = rmap["data"]["students"]
+//~ log.debug("ST_LIST: %#v", st_list)
+for st in st_list {
+	//~ log.debug("ST: %#v", st)
+	st_id = st["_id"]
+	st_fn = st["firstName"]
+	//~ log.debug("ST: %s %s", st_id, st_fn)
+	params = url.parse_queryf("studentId=%s", st_id)
+	resp = bot.post_form("/student/delete", params)
+	check.http_status(resp, http.status_ok)
+}
+
+// class rooms
+
+resp = bot.get("/classroom/classrooms")
+
+if !check.http_status(resp, http.status_ok) {
+	bot_logout()
+	return "http status error"
+}
+
+rmap, err = response.json_map(resp)
+if err != nil {
+	log.error("%v", err)
+	bot_logout()
+	return "json error"
+}
+
+cr_list = rmap["data"]["classrooms"]
+//~ log.debug("CR_LIST: %#v", cr_list)
+for cr in cr_list {
+	cr_id = cr["_id"]
+	params = url.parse_queryf("classroomId=%s", cr_id)
+	resp = bot.post_form("/classroom/delete", params)
+	check.http_status(resp, http.status_ok)
+}
+
+bot_logout()
