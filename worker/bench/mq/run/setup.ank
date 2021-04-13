@@ -1,0 +1,44 @@
+// mq bot classroom and students setup
+
+bot_login()
+
+// create classroom
+
+params = url.parse_query("name=mqbot_cr0&grade=5")
+resp = bot.post_form("/classroom/create", params)
+
+if !check.http_status(resp, http.status_ok) {
+	bot_logout()
+	return "http status error"
+}
+
+if !check.json_match(resp, "response status", `{"status": "success"}`) {
+	bot_logout()
+	return "response status error"
+}
+
+class_id = "NONE"
+rmap, err = response.json_map(resp)
+if err != nil {
+	log.error("%v", err)
+	bot_logout()
+	return "json error"
+} else {
+	class_id = rmap["data"]["_id"]
+}
+
+// add students
+
+students = 10
+
+for i = 0; i < students; i++ {
+	st_contacts = sprintf(`{"firstName":"mqbot_st%d_ct","lastName":"mqbot_st%d_ct_lastname", "language":"en","relationship":{"value":"mother","name":"Mother"},"number": "+555666000%d"}`, i, i, i)
+	st = sprintf(`{"firstName":"mqbot_st%d","lastName":"mqbot_st%d_lastname","grade":5,"classrooms":["%s"],"contacts":[%s]}`, i, i, class_id, st_contacts)
+	log.debug("STUDENT: %s", st)
+	resp = bot.post_json("/student/create", st)
+	check.http_status(resp, http.status_ok)
+	check.json_match(resp, "response status", `{"status": "success"}`)
+	log.debug("RESP: %s", resp)
+}
+
+bot_logout()
