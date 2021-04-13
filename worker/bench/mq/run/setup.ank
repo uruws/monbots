@@ -34,11 +34,9 @@ students = 10
 for i = 0; i < students; i++ {
 	st_contacts = sprintf(`{"firstName":"mqbot_st%d_ct","lastName":"mqbot_st%d_ct_lastname", "language":"en","relationship":{"value":"mother","name":"Mother"},"number": "+555666000%d"}`, i, i, i)
 	st = sprintf(`{"firstName":"mqbot_st%d","lastName":"mqbot_st%d_lastname","grade":5,"classrooms":["%s"],"contacts":[%s]}`, i, i, class_id, st_contacts)
-	log.debug("STUDENT: %s", st)
 	resp = bot.post_json("/student/create", st)
 	check.http_status(resp, http.status_ok)
 	check.json_match(resp, "response status", `{"status": "success"}`)
-	log.debug("RESP: %s", resp)
 }
 
 bot_logout()
