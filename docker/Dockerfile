@@ -1,7 +1,7 @@
 FROM debian:bullseye-slim
 
 LABEL mantainer="Jeremías Casteglione <jeremias@talkingpts.org>"
-LABEL version="210928"
+LABEL version="220317"
 
 USER root:root
 WORKDIR /root
@@ -30,7 +30,7 @@ RUN groupadd -f -g ${UWS_GID} uws \
 	&& useradd -o -d /home/uws -m -c 'uws' -g ${UWS_GID} -u ${UWS_UID} uws \
 	&& chmod -v 0750 /home/uws
 
-ENV UWSBOT 398e147fc27d862787c67ac717023c71f6e7a34738b84ef2192f19f63a54be65
+ENV UWSBOT e5cc124b37cc2697166259bc24e331659416a7f1b0529777f5a4d4aeb0026111
 RUN wget -O uwsbot-devel.tgz http://jsbatch.uws.talkingpts.org/uwsbot/${UWSBOT}.tgz \
 	&& echo "${UWSBOT}  uwsbot-devel.tgz" >checksum \
 	&& sha256sum -c checksum \
